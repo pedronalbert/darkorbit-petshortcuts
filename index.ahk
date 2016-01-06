@@ -1,7 +1,6 @@
 
 
 !q::
-  TrayTip, PetShortcuts, Kamikaze...
   if(isDead()) {
     revive()
   }
@@ -15,7 +14,6 @@
 return
 
 !w::
-  TrayTip, PetShortcuts, Kamikaze...
   if(isDead()) {
     revive()
   }
@@ -29,7 +27,6 @@ return
 return
 
 !e::
-  TrayTip, PetShortcuts, Kamikaze...
   if(isDead()) {
     revive()
   }
