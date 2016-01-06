@@ -43,7 +43,7 @@ return
 return
 
 isDead() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/dead.bmp
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/dead.bmp
 
   if(ErrorLevel = 0) {
     return true
@@ -54,7 +54,7 @@ isDead() {
 }
 
 isPlaying() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/playing.bmp
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/playing.bmp
 
   if(ErrorLevel = 0) {
     return true
@@ -65,7 +65,7 @@ isPlaying() {
 
 
 isPaused() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/paused.bmp
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/paused.bmp
 
   if(ErrorLevel = 0) {
     return true
@@ -75,7 +75,7 @@ isPaused() {
 }
 
 modulesIsOpen() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/modules_button_open.bmp
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/modules_button_open.bmp
 
   if(ErrorLevel = 0) {
     return true
@@ -86,7 +86,7 @@ modulesIsOpen() {
 
 openModules() {
   if(modulesIsOpen() = false) {
-    ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/modules_button.bmp
+    ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/modules_button.bmp
 
     if(ErrorLevel = 0) {
       MouseGetPos, mouseX, mouseY
@@ -117,7 +117,7 @@ openModules() {
 }
 
 setKami() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/module_kami.bmp
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/module_kami.bmp
 
   if(ErrorLevel = 0) {
     MouseGetPos, mouseX, mouseY
@@ -131,7 +131,7 @@ setKami() {
 }
 
 setDefense() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/module_defense.bmp
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/module_defense.bmp
 
   if(ErrorLevel = 0) {
     MouseGetPos, mouseX, mouseY
@@ -145,14 +145,14 @@ setDefense() {
 }
 
 setTracker() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/module_tracker.bmp
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/module_tracker.bmp
 
   if(ErrorLevel = 0) {
     MouseGetPos, mouseX, mouseY
     MouseMove, corsX + 1, corsY + 1, 0
     Sleep, 100
 
-    ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/klon.bmp
+    ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/klon.bmp
 
     if(ErrorLevel = 0) {
       MouseClick, Left, corsX, corsY, 1, 0
@@ -167,7 +167,7 @@ setTracker() {
 }
 
 revive() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/dead.bmp
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/dead.bmp
 
   if(ErrorLevel = 0) {
     MouseGetPos, mouseX, mouseY
@@ -197,7 +197,7 @@ revive() {
 }
 
 play() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, ./img/paused.bmp
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/paused.bmp
 
   if(ErrorLevel = 0) {
     MouseGetPos, mouseX, mouseY
