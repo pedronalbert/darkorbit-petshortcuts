@@ -22,7 +22,6 @@ return
     play()
   }
 
-  openModules()
   setDefense()
 return
 
@@ -94,6 +93,7 @@ openModules() {
 
       Loop { ;wait reviven
         if(modulesIsOpen()) {
+          Sleep, 100
           break
         } else {
           timeWaiting += 100
@@ -128,17 +128,7 @@ setKami() {
 }
 
 setDefense() {
-  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/module_defense.bmp
-
-  if(ErrorLevel = 0) {
-    MouseGetPos, mouseX, mouseY
-    MouseClick, Left, corsX + 1, corsY + 1, 1, 0
-    MouseMove, mouseX, mouseY, 0
-
-    return true
-  } else {
-    return false
-  }
+  Send {a}
 }
 
 setTracker() {
@@ -197,9 +187,7 @@ play() {
   ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/paused.bmp
 
   if(ErrorLevel = 0) {
-    MouseGetPos, mouseX, mouseY
-    MouseClick, Left, corsX + 1, corsY + 1, 1, 0
-    MouseMove, mouseX, mouseY, 0
+    Send {s}
 
     timeWaiting = 0
 
