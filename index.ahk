@@ -93,7 +93,7 @@ openModules() {
 
       Loop { ;wait reviven
         if(modulesIsOpen()) {
-          Sleep, 100
+          Sleep, 150
           break
         } else {
           timeWaiting += 100
