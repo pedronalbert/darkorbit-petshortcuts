@@ -137,7 +137,7 @@ setKami() {
 }
 
 setDefense() {
-  Send {a}
+  Send {m}
 }
 
 setTracker() {
@@ -196,7 +196,7 @@ play() {
   ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/paused.bmp
 
   if(ErrorLevel = 0) {
-    Send {s}
+    Send {n}
 
     timeWaiting = 0
 
