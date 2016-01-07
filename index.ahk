@@ -43,6 +43,7 @@ f4::
   openRefinatorWindow()
   refinate("prometid")
   refinate("duranium")
+  Sleep, 200
   closeRefinatorWindow()
   MouseMove, mouseX, mouseY, 0
 return
@@ -229,12 +230,23 @@ refinate(resource) {
 
     MouseClick, Left, corsX, corsY, 1, 0
 
-    Sleep, 300
+    timeWaiting := 0
+
+    Loop { ;wait for prometid
+      ImageSearch, arrowCorsX, arrowCorsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/refinator_selector_arrow.bmp
+
+      if(ErrorLevel = 0) {
+        break
+      } else {
+        timeWaiting += 100
+
+        if(timeWaiting >= 2000) {
+          break
+        }
+      }
+    }
 
     ;click arrow
-
-    ImageSearch, arrowCorsX, arrowCorsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *10 ./img/refinator_selector_arrow.bmp
-
     MouseClick, Left, arrowCorsX, arrowCorsY, 1, 0
     Sleep, 300
 
