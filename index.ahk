@@ -39,8 +39,12 @@ return
 return
 
 f4::
+  MouseGetPos, mouseX, mouseY
+  openRefinatorWindow()
   refinate("prometid")
   refinate("duranium")
+  closeRefinatorWindow()
+  MouseMove, mouseX, mouseY, 0
 return
 
 isDead() {
@@ -225,14 +229,14 @@ refinate(resource) {
 
     MouseClick, Left, corsX, corsY, 1, 0
 
-    Sleep, 300
+    Sleep, 200
 
     ;click arrow
 
-    ImageSearch, arrowCorsX, arrowCorsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/refinator_selector_arrow.bmp
+    ImageSearch, arrowCorsX, arrowCorsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *10 ./img/refinator_selector_arrow.bmp
 
     MouseClick, Left, arrowCorsX, arrowCorsY, 1, 0
-    Sleep, 300
+    Sleep, 200
 
     anchorY := arrowCorsY
     Loop {
@@ -249,10 +253,27 @@ refinate(resource) {
 
     ;select amount
     MouseClick, Left, arrowCorsX, amountYCors, 1, 0
-    Sleep, 300
+    Sleep, 200
 
     ;click refinate
     MouseClick, Left, arrowCorsX - 65, arrowCorsY + 43, 1, 0
-    Sleep, 600
+    Sleep, 400
+  }
+}
+
+openRefinatorWindow() {
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/refinator_window_button.bmp
+
+  if(ErrorLevel = 0) {
+    MouseClick, Left, corsX + 1, corsY + 1, 1, 0
+    Sleep, 1000
+  }
+}
+
+closeRefinatorWindow() {
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/refinator_window_button_close.bmp
+
+  if(ErrorLevel = 0) {
+    MouseClick, Left, corsX + 1, corsY + 1, 1, 0
   }
 }
