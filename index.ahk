@@ -43,7 +43,6 @@ f4::
   openRefinatorWindow()
   refinate("prometid")
   refinate("duranium")
-  Sleep, 500
   closeRefinatorWindow()
   MouseMove, mouseX, mouseY, 0
 return
@@ -230,14 +229,14 @@ refinate(resource) {
 
     MouseClick, Left, corsX, corsY, 1, 0
 
-    Sleep, 400
+    Sleep, 300
 
     ;click arrow
 
     ImageSearch, arrowCorsX, arrowCorsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *10 ./img/refinator_selector_arrow.bmp
 
     MouseClick, Left, arrowCorsX, arrowCorsY, 1, 0
-    Sleep, 400
+    Sleep, 300
 
     anchorY := arrowCorsY
     Loop {
@@ -254,11 +253,26 @@ refinate(resource) {
 
     ;select amount
     MouseClick, Left, arrowCorsX, amountYCors, 1, 0
-    Sleep, 400
+    Sleep, 300
 
     ;click refinate
     MouseClick, Left, arrowCorsX - 65, arrowCorsY + 43, 1, 0
-    Sleep, 400
+    
+
+    timeWaiting := 0
+    Loop { ;wait for finish
+      ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/prometid.bmp
+
+      if(ErrorLevel = 0) {
+        break
+      } else {
+        timeWaiting += 100
+
+        if(timeWaiting >= 3000) {
+          break
+        }
+      }
+    }
   }
 }
 
@@ -267,7 +281,21 @@ openRefinatorWindow() {
 
   if(ErrorLevel = 0) {
     MouseClick, Left, corsX + 1, corsY + 1, 1, 0
-    Sleep, 1500
+    timeWaiting := 0
+
+    Loop { ;wait for prometid
+      ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/prometid.bmp
+
+      if(ErrorLevel = 0) {
+        break
+      } else {
+        timeWaiting += 100
+
+        if(timeWaiting >= 3000) {
+          break
+        }
+      }
+    }
   }
 }
 
