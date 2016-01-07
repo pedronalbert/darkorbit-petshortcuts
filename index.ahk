@@ -38,6 +38,19 @@ return
   setTracker()
 return
 
+!r::
+  if(isDead()) {
+    revive()
+  }
+
+  if(isPaused()) {
+    play()
+  }
+
+  openModules()
+  setAutocollector()
+return
+
 f4::
   MouseGetPos, mouseX, mouseY
   openRefinatorWindow()
@@ -125,6 +138,20 @@ openModules() {
 
 setKami() {
   ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/module_kami.bmp
+
+  if(ErrorLevel = 0) {
+    MouseGetPos, mouseX, mouseY
+    MouseClick, Left, corsX + 1, corsY + 1, 1, 0
+    MouseMove, mouseX, mouseY, 0
+
+    return true
+  } else {
+    return false
+  }
+}
+
+setAutocollector() {
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/module_autocollector.bmp
 
   if(ErrorLevel = 0) {
     MouseGetPos, mouseX, mouseY
