@@ -38,6 +38,11 @@ return
   setTracker()
 return
 
+f4::
+  refinate("prometid")
+  refinate("duranium")
+return
+
 isDead() {
   ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/dead.bmp
 
@@ -208,5 +213,46 @@ play() {
     return true
   } else {
     return false
+  }
+}
+
+refinate(resource) {
+  ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, % "*5 ./img/" resource ".bmp"
+
+  if(ErrorLevel = 0) {
+    ;click to resource "refinate"
+    corsY += 80
+
+    MouseClick, Left, corsX, corsY, 1, 0
+
+    Sleep, 300
+
+    ;click arrow
+
+    ImageSearch, arrowCorsX, arrowCorsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/refinator_selector_arrow.bmp
+
+    MouseClick, Left, arrowCorsX, arrowCorsY, 1, 0
+    Sleep, 300
+
+    anchorY := arrowCorsY
+    Loop {
+      anchorY += 20
+
+      PixelGetColor, color, arrowCorsX, anchorY
+
+      if(color = "0xFFFFFF" or color = "0xFFD89A") {
+        amountYCors := anchorY
+      } else {
+        break
+      }
+    }
+
+    ;select amount
+    MouseClick, Left, arrowCorsX, amountYCors, 1, 0
+    Sleep, 300
+
+    ;click refinate
+    MouseClick, Left, arrowCorsX - 65, arrowCorsY + 43, 1, 0
+    Sleep, 600
   }
 }
