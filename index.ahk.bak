@@ -67,8 +67,8 @@ return
 f4::
   MouseGetPos, mouseX, mouseY
   openRefinatorWindow()
-  refinateResource("duranium")
   refinateResource("prometid")
+  refinateResource("duranium")
   closeRefinatorWindow()
   MouseMove, mouseX, mouseY, 0
 return
@@ -81,6 +81,22 @@ return
 f2::
   TrayTIp, Helper, Circle Stoped...
   stopCircles()
+return
+
+Numpad4::
+  decrementRadium()
+return
+
+Numpad7::
+  incrementRadium()
+return
+
+Numpad5::
+  decrementSpeed()
+return
+
+Numpad8::
+  incrementSpeed()
 return
 
 refinateResource(resource) {
