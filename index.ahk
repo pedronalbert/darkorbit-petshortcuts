@@ -9,6 +9,7 @@ shipCenterY := 538
 circleRadium := 230
 circleSpeed := 0.0157
 circleActive := false
+waitCubikon := false
 ;----------------------------------------
 
 #Include, ./src/Refinator.ahk
@@ -75,13 +76,13 @@ f4::
 return
 
 f1::
-  TrayTip, Helper, Circle Activated...
-  initCircles()
+  TrayTip, Helper, InitCubikon
+  initWaitCubikon()
 return
 
 f2::
-  TrayTIp, Helper, Circle Stoped...
-  stopCircles()
+  TrayTip, Helper, Stop cubikon
+  stopWaitCubikon()
 return
 
 initCircles() {
@@ -117,34 +118,30 @@ stopCircles() {
   circleActive := false
 }
 
-incrementRadium() {
-  global circleRadium
 
-  circleRadium++
+initWaitCubikon() {
+  global waitCubikon
 
-  TrayTip, Helper, Radium %circleRadium%
+  waitCubikon := true
+  Loop {
+    ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight,*20 ./img/cubikon.bmp
+
+    if (ErrorLevel = 0) {
+      MouseClick, Left, corsX, corsY, 1, 0
+      Sleep, 500
+      Send {Ctrl}
+      break
+    }
+
+    if(waitCubikon = false) {
+      break
+    }
+    
+  }
 }
 
-decrementRadium() {
-  global circleRadium
+stopWaitCubikon() {
+  global waitCubikon
 
-  circleRadium--
-
-  TrayTip, Helper, Radium %circleRadium%
-}
-
-incrementSpeed() {
-  global circleSpeed
-
-  circleSpeed += 0.0001
-
-  TrayTip, Helper, Speed %circleSpeed%
-}
-
-decrementSpeed() {
-  global circleSpeed
-
-  circleSpeed -= 0.0001
-
-  TrayTip, Helper, Speed %circleSpeed%
+  waitCubikon := false
 }

@@ -119,9 +119,11 @@ class Refinator {
       timeWaiting := 0
 
       Loop { ;wait for prometid
-        ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/prometid.bmp
+        ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/refinator_window.bmp
 
         if(ErrorLevel = 0) {
+          Sleep, 500
+          MouseClick, Left, corsX + 50, corsY + 55, 1, 0
           break
         } else {
 
@@ -141,10 +143,10 @@ class Refinator {
     timeWaiting := 0
 
     Loop {
-        ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/refinator_window_button_close.bmp
+        ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/refinator_window.bmp
 
         if(ErrorLevel = 0) {
-          MouseClick, Left, corsX + 1, corsY + 1, 1, 0
+          MouseClick, Left, corsX + 5, corsY + 5, 1, 0
           break
         } else {
 
