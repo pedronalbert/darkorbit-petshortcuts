@@ -106,7 +106,7 @@ class Pet {
     Send {m}
   }
 
-  setTracker() {
+  setTracker(searchAllien) {
     ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/module_tracker.bmp
 
     if(ErrorLevel = 0) {
@@ -117,7 +117,7 @@ class Pet {
       timeWaiting := 0
 
       Loop {
-        ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight, *5 ./img/klon.bmp
+        ImageSearch, corsX, corsY, 0, 0, A_ScreenWidth, A_ScreenHeight,*5 ./img/pet_alliens/%searchAllien%.bmp
 
         if(ErrorLevel = 0) {
           MouseClick, Left, corsX, corsY, 1, 0
