@@ -3,10 +3,17 @@
 CoordMode, Pixel, Screen
 CoordMode, Mouse, Screen
 
-InputBox, searchAllien, "Allient to track", "Allient To Track"
+searchAllien := "kristallon"
 
 #Include, ./src/Refinator.ahk
 #Include, ./src/Pet.ahk
+
+displayShortcutsList() {
+  MsgBox,,Comandos, Alt+Q Kamikaze `nAlt+W Defensive `nAlt+E Revive Pet `nAlt+E Tracker `nAlt+R Autocollector `nF4 Refine `nF2 Change Alien Tracker
+}
+
+displayShortcutsList()
+
 !q::
   if(Pet.isDead()) {
     Pet.revive()
@@ -70,4 +77,8 @@ return
 
 f2::
   InputBox, searchAllien, "Allient to track", "Allient To Track"
+return
+
+f1::
+  displayShortcutsList()
 return
